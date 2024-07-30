@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>走走停停的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="走走停停的博客">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:site_name" content="走走停停的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="DGN">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="走走停停的博客" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -39,8 +39,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">走走停停的博客</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">加油啊</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -55,12 +59,12 @@
       <nav id="sub-nav">
         
         
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
         
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -68,6 +72,55 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Leet33搜索旋转排序数组" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/31/Leet33%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/" class="article-date">
+  <time class="dt-published" datetime="2024-07-30T23:32:14.000Z" itemprop="datePublished">2024-07-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/07/31/Leet33%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/">Leet33搜索旋转排序数组</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>题目内容：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs txt">整数数组 nums 按升序排列，数组中的值 互不相同 。<br><br>在传递给函数之前，nums 在预先未知的某个下标 k（0 &lt;= k &lt; nums.length）上进行了 旋转，使数组变为 [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]（下标 从 0 开始 计数）。例如， [0,1,2,4,5,6,7] 在下标 3 处经旋转后可能变为 [4,5,6,7,0,1,2] 。<br><br>给你 旋转后 的数组 nums 和一个整数 target ，如果 nums 中存在这个目标值 target ，则返回它的下标，否则返回 -1 。<br><br>你必须设计一个时间复杂度为 O(log n) 的算法解决此问题。<br><br>示例 1：<br><br>输入：nums = [4,5,6,7,0,1,2], target = 0<br>输出：4<br>示例 2：<br><br>输入：nums = [4,5,6,7,0,1,2], target = 3<br>输出：-1<br>示例 3：<br><br>输入：nums = [1], target = 0<br>输出：-1<br><br>提示：<br><br>1 &lt;= nums.length &lt;= 5000<br>-104 &lt;= nums[i] &lt;= 104<br>nums 中的每个值都 独一无二<br>题目数据保证 nums 在预先未知的某个下标上进行了旋转<br>-104 &lt;= target &lt;= 104<br></code></pre></td></tr></table></figure>
+
+<p>首先提炼关键信息，nums 旋转前是升序数组，旋转相当于头尾连接再切分，target 是要寻找的目标值，找到返回下标，否则返回-1</p>
+<p>时间复杂度要求 O(log n)，应该是要求使用二分查找</p>
+<p>但是数组旋转后不是有序的了，要解决此问题</p>
+<p>方法：（没有想到具体怎么用二分操作，看的答案）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">search</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target)</span> &#123;<br><br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>] == target ? <span class="hljs-number">0</span> : -<span class="hljs-number">1</span>;<br><br>        <span class="hljs-type">int</span> <span class="hljs-variable">l</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (l &lt;= r) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> (l + r) / <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span> (nums[mid] == target) <span class="hljs-keyword">return</span> mid;<span class="hljs-comment">//直接在前面处理了 nums[mid]==target的情况，后面更好分析</span><br><span class="hljs-comment">//            如果前半部分有序</span><br>            <span class="hljs-keyword">if</span> (nums[<span class="hljs-number">0</span>] &lt; nums[mid]) &#123;<br><span class="hljs-comment">//                如果target位于0-mid</span><br>                <span class="hljs-keyword">if</span> (nums[<span class="hljs-number">0</span>] &lt;= target &amp;&amp; target &lt; nums[mid]) &#123;<span class="hljs-comment">//因为前面排除了nums[mid]==target的情况，所以此时只有大于，小于两种情况</span><br>                    r = mid - <span class="hljs-number">1</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<span class="hljs-comment">//前面部分是有序的，既然不满足前面的条件，target必定在后面的区间，但后面的区间是无序的，可以再次二分，判断在不在有序的部分。</span><br>                    l = mid + <span class="hljs-number">1</span>;<br>                &#125;<br><span class="hljs-comment">//                如果后半部分有序</span><br>            &#125; <span class="hljs-keyword">else</span> &#123;<br><span class="hljs-comment">//                如果target位于mid- n-1</span><br>                <span class="hljs-keyword">if</span> (nums[mid] &lt; target &amp;&amp; target &lt;= nums[n - <span class="hljs-number">1</span>]) &#123;<br>                    l = mid + <span class="hljs-number">1</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    r = mid - <span class="hljs-number">1</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/31/Leet33%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/" data-id="clz924nkb0000tktjahbnhyus" data-title="Leet33搜索旋转排序数组" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="tag">二分查找</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-hexo快速搭建个人博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -106,11 +159,11 @@
 <p>为什么要配置 SSH key？<br>目的：可以免密将本地的源码和资源上传到 github，无需每次都输账号和密码</p>
 </blockquote>
 <p>设置 Git账号和邮箱</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;username&quot;</span><br><span class="line">git config --global user.email &quot;xxx@163.com&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">git config --global user.name &quot;username&quot;<br>git config --global user.email &quot;xxx@163.com&quot;<br></code></pre></td></tr></table></figure>
 
 
 <p>先查看本地是否配置好 SSH key，在 git bash 中 命令：<code>cd ~/.ssh</code>，成功进入路径即表示配置好了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Admin@DESKTOP-54I0NJ3 MINGW64 /d/Notes/MyBlog (master)</span><br><span class="line">$ cd ~/.ssh</span><br><span class="line"></span><br><span class="line">Admin@DESKTOP-54I0NJ3 MINGW64 ~/.ssh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs git">Admin@DESKTOP-54I0NJ3 MINGW64 /d/Notes/MyBlog (master)<br>$ cd ~/.ssh<br><br>Admin@DESKTOP-54I0NJ3 MINGW64 ~/.ssh<br><br></code></pre></td></tr></table></figure>
 <p>显示：<code>No such filr or firecotry</code> 表示没有配置</p>
 <blockquote>
 <p>ssh 配置好后是保存到 <code>C:/Users/用户名/.ssh</code> 文件夹</p>
@@ -129,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/28/hexo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-id="clz4l1ede0000ektjg4j10xov" data-title="hexo快速搭建个人博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/28/hexo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-id="clz5pylkx00048ktjcp61fadw" data-title="hexo快速搭建个人博客" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -165,22 +218,22 @@
       
         <h3 id="使用-NVM-安装和管理-nodejs"><a href="#使用-NVM-安装和管理-nodejs" class="headerlink" title="使用 NVM 安装和管理 nodejs"></a>使用 NVM 安装和管理 nodejs</h3><hr>
 <p>为什么要使用 nvm 管理 nodejs？<br>当前安装的 node.js 版本与项目所使用的 node.js 版本不一致，会导致 <code>npm install</code> 发生错误</p>
-<h4 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h4><h4 id="一、卸载已安装的-nodejs"><a href="#一、卸载已安装的-nodejs" class="headerlink" title="一、卸载已安装的 nodejs"></a>一、卸载已安装的 nodejs</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#查看是否已安装node.js</span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<h4 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h4><h4 id="一、卸载已安装的-nodejs"><a href="#一、卸载已安装的-nodejs" class="headerlink" title="一、卸载已安装的 nodejs"></a>一、卸载已安装的 nodejs</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">#查看是否已安装node.js<br>node -v<br></code></pre></td></tr></table></figure>
 <h5 id="未安装"><a href="#未安装" class="headerlink" title="未安装"></a>未安装</h5><p>未安装 node.js 可以跳过此步骤</p>
 <h5 id="已安装"><a href="#已安装" class="headerlink" title="已安装"></a>已安装</h5><p>需要卸载删除已安装的 nodejs<br>打开控制面板，卸载nodejs 即可。</p>
 <h4 id="二、安装NVM"><a href="#二、安装NVM" class="headerlink" title="二、安装NVM"></a>二、安装NVM</h4><p>1、下载安装包 从 github 下载安装包，直接默认安装即可。<br><a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a><br>2、<code>nvm -v</code> 查看是否安装成功，以及 nvm 的版本</p>
-<h4 id="三、安装-node-js"><a href="#三、安装-node-js" class="headerlink" title="三、安装 node.js"></a>三、安装 node.js</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#查看可用的node.js稳定版本</span><br><span class="line">nvm list available</span><br><span class="line">#下载指定的node.js版本</span><br><span class="line">nvm install 20.15.0</span><br></pre></td></tr></table></figure>
-<h4 id="四、相关命令"><a href="#四、相关命令" class="headerlink" title="四、相关命令"></a>四、相关命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#查看已安装的node.js</span><br><span class="line">nvm list</span><br><span class="line">#切换当前使用版本</span><br><span class="line">nvm use 20.15.0</span><br><span class="line">#卸载node.js版本</span><br><span class="line">nvm uninstall 20.15.0</span><br></pre></td></tr></table></figure>
+<h4 id="三、安装-node-js"><a href="#三、安装-node-js" class="headerlink" title="三、安装 node.js"></a>三、安装 node.js</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">#查看可用的node.js稳定版本<br>nvm list available<br>#下载指定的node.js版本<br>nvm install 20.15.0<br></code></pre></td></tr></table></figure>
+<h4 id="四、相关命令"><a href="#四、相关命令" class="headerlink" title="四、相关命令"></a>四、相关命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">#查看已安装的node.js<br>nvm list<br>#切换当前使用版本<br>nvm use 20.15.0<br>#卸载node.js版本<br>nvm uninstall 20.15.0<br></code></pre></td></tr></table></figure>
 <h4 id="五、安装nrm，切换npm-镜像"><a href="#五、安装nrm，切换npm-镜像" class="headerlink" title="五、安装nrm，切换npm 镜像"></a>五、安装nrm，切换npm 镜像</h4><p>全局安装nrm：<code>npm install -g nrm</code><br>查看镜像源列表：<code>nrm ls</code></p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>\<span class="title">Admin</span>&gt;<span class="title">nrm</span> <span class="title">ls</span></span></span><br><span class="line"><span class="function">  <span class="title">npm</span> ---------- <span class="title">https</span>://<span class="title">registry.npmjs.org</span>/</span></span><br><span class="line"><span class="function">  <span class="title">yarn</span> --------- <span class="title">https</span>://<span class="title">registry.yarnpkg.com</span>/</span></span><br><span class="line"><span class="function">  <span class="title">tencent</span> ------ <span class="title">https</span>://<span class="title">mirrors.cloud.tencent.com</span>/<span class="title">npm</span>/</span></span><br><span class="line"><span class="function">  <span class="title">cnpm</span> --------- <span class="title">https</span>://<span class="title">r.cnpmjs.org</span>/</span></span><br><span class="line"><span class="function">* <span class="title">taobao</span> ------- <span class="title">https</span>://<span class="title">registry.npmmirror.com</span>/</span></span><br><span class="line"><span class="function">  <span class="title">npmMirror</span> ---- <span class="title">https</span>://<span class="title">skimdb.npmjs.com</span>/<span class="title">registry</span>/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-function">C:\<span class="hljs-title">Users</span>\<span class="hljs-title">Admin</span>&gt;<span class="hljs-title">nrm</span> <span class="hljs-title">ls</span></span><br><span class="hljs-function">  <span class="hljs-title">npm</span> ---------- <span class="hljs-title">https</span>://<span class="hljs-title">registry.npmjs.org</span>/</span><br><span class="hljs-function">  <span class="hljs-title">yarn</span> --------- <span class="hljs-title">https</span>://<span class="hljs-title">registry.yarnpkg.com</span>/</span><br><span class="hljs-function">  <span class="hljs-title">tencent</span> ------ <span class="hljs-title">https</span>://<span class="hljs-title">mirrors.cloud.tencent.com</span>/<span class="hljs-title">npm</span>/</span><br><span class="hljs-function">  <span class="hljs-title">cnpm</span> --------- <span class="hljs-title">https</span>://<span class="hljs-title">r.cnpmjs.org</span>/</span><br><span class="hljs-function">* <span class="hljs-title">taobao</span> ------- <span class="hljs-title">https</span>://<span class="hljs-title">registry.npmmirror.com</span>/</span><br><span class="hljs-function">  <span class="hljs-title">npmMirror</span> ---- <span class="hljs-title">https</span>://<span class="hljs-title">skimdb.npmjs.com</span>/<span class="hljs-title">registry</span>/</span><br></code></pre></td></tr></table></figure>
 <p>查看当前源：<code>nrm currnet</code></p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>\<span class="title">Admin</span>&gt;<span class="title">nrm</span> <span class="title">current</span></span></span><br><span class="line"><span class="function"><span class="title">You</span> <span class="title">are</span> <span class="title">using</span> <span class="title">taobao</span> <span class="title">registry</span>.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-function">C:\<span class="hljs-title">Users</span>\<span class="hljs-title">Admin</span>&gt;<span class="hljs-title">nrm</span> <span class="hljs-title">current</span></span><br><span class="hljs-function"><span class="hljs-title">You</span> <span class="hljs-title">are</span> <span class="hljs-title">using</span> <span class="hljs-title">taobao</span> <span class="hljs-title">registry</span>.</span><br></code></pre></td></tr></table></figure>
 <p>切换镜像源：<code>nrm use taobao</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/28/nodejs/" data-id="clz4l1edm0002ektj3ljwceue" data-title="nodejs" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/28/nodejs/" data-id="clz5pylkw00038ktjd8xl3j62" data-title="nodejs" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -215,23 +268,23 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/21/hello-world/" data-id="clz4l1edl0001ektj7zkdbcgp" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/21/hello-world/" data-id="clz5pylks00018ktj3g1n1g8m" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -253,15 +306,10 @@
 
   
     
-
-  
-    
-  
-    
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="tag">二分查找</a></li></ul>
     </div>
   </div>
 
@@ -269,9 +317,32 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/LeetCode/" style="font-size: 10px;">LeetCode</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 10px;">二分查找</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/07/31/Leet33%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/">Leet33搜索旋转排序数组</a>
+          </li>
         
           <li>
             <a href="/2024/07/28/hexo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">hexo快速搭建个人博客</a>
@@ -298,7 +369,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2024 John Doe<br>
+      &copy; 2024 DGN<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

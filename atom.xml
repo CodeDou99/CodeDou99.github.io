@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>走走停停的博客</title>
+  
+  <subtitle>加油啊</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2024-07-30T23:42:32.219Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>DGN</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leet33搜索旋转排序数组</title>
+    <link href="http://example.com/2024/07/31/Leet33%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/"/>
+    <id>http://example.com/2024/07/31/Leet33%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/</id>
+    <published>2024-07-30T23:32:14.000Z</published>
+    <updated>2024-07-30T23:42:32.219Z</updated>
+    
+    <content type="html"><![CDATA[<p>题目内容：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs txt">整数数组 nums 按升序排列，数组中的值 互不相同 。<br><br>在传递给函数之前，nums 在预先未知的某个下标 k（0 &lt;= k &lt; nums.length）上进行了 旋转，使数组变为 [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]（下标 从 0 开始 计数）。例如， [0,1,2,4,5,6,7] 在下标 3 处经旋转后可能变为 [4,5,6,7,0,1,2] 。<br><br>给你 旋转后 的数组 nums 和一个整数 target ，如果 nums 中存在这个目标值 target ，则返回它的下标，否则返回 -1 。<br><br>你必须设计一个时间复杂度为 O(log n) 的算法解决此问题。<br><br>示例 1：<br><br>输入：nums = [4,5,6,7,0,1,2], target = 0<br>输出：4<br>示例 2：<br><br>输入：nums = [4,5,6,7,0,1,2], target = 3<br>输出：-1<br>示例 3：<br><br>输入：nums = [1], target = 0<br>输出：-1<br><br>提示：<br><br>1 &lt;= nums.length &lt;= 5000<br>-104 &lt;= nums[i] &lt;= 104<br>nums 中的每个值都 独一无二<br>题目数据保证 nums 在预先未知的某个下标上进行了旋转<br>-104 &lt;= target &lt;= 104<br></code></pre></td></tr></table></figure><p>首先提炼关键信息，nums 旋转前是升序数组，旋转相当于头尾连接再切分，target 是要寻找的目标值，找到返回下标，否则返回-1</p><p>时间复杂度要求 O(log n)，应该是要求使用二分查找</p><p>但是数组旋转后不是有序的了，要解决此问题</p><p>方法：（没有想到具体怎么用二分操作，看的答案）</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">search</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target)</span> &#123;<br><br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>] == target ? <span class="hljs-number">0</span> : -<span class="hljs-number">1</span>;<br><br>        <span class="hljs-type">int</span> <span class="hljs-variable">l</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (l &lt;= r) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> (l + r) / <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span> (nums[mid] == target) <span class="hljs-keyword">return</span> mid;<span class="hljs-comment">//直接在前面处理了 nums[mid]==target的情况，后面更好分析</span><br><span class="hljs-comment">//            如果前半部分有序</span><br>            <span class="hljs-keyword">if</span> (nums[<span class="hljs-number">0</span>] &lt; nums[mid]) &#123;<br><span class="hljs-comment">//                如果target位于0-mid</span><br>                <span class="hljs-keyword">if</span> (nums[<span class="hljs-number">0</span>] &lt;= target &amp;&amp; target &lt; nums[mid]) &#123;<span class="hljs-comment">//因为前面排除了nums[mid]==target的情况，所以此时只有大于，小于两种情况</span><br>                    r = mid - <span class="hljs-number">1</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<span class="hljs-comment">//前面部分是有序的，既然不满足前面的条件，target必定在后面的区间，但后面的区间是无序的，可以再次二分，判断在不在有序的部分。</span><br>                    l = mid + <span class="hljs-number">1</span>;<br>                &#125;<br><span class="hljs-comment">//                如果后半部分有序</span><br>            &#125; <span class="hljs-keyword">else</span> &#123;<br><span class="hljs-comment">//                如果target位于mid- n-1</span><br>                <span class="hljs-keyword">if</span> (nums[mid] &lt; target &amp;&amp; target &lt;= nums[n - <span class="hljs-number">1</span>]) &#123;<br>                    l = mid + <span class="hljs-number">1</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    r = mid - <span class="hljs-number">1</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>    &#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;题目内容：&lt;/p&gt;
+&lt;figure class=&quot;highlight txt&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="LeetCode" scheme="http://example.com/tags/LeetCode/"/>
+    
+    <category term="二分查找" scheme="http://example.com/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo快速搭建个人博客</title>
+    <link href="http://example.com/2024/07/28/hexo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://example.com/2024/07/28/hexo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</id>
+    <published>2024-07-27T20:26:01.000Z</published>
+    <updated>2024-07-27T20:26:57.168Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>参考链接： <a href="https://www.cnblogs.com/chenlove/p/15058170.html">https://www.cnblogs.com/chenlove/p/15058170.html</a><br><a href="https://blog.csdn.net/weixin_51363613/article/details/140578937">https://blog.csdn.net/weixin_51363613/article/details/140578937</a></p></blockquote><p>hexo 是什么？<br>一个用于便于搭建个人博客的前端框架，需要使用 npm 进行下载安装</p><p>为了方便同步到 github，需要先安装 Git<br>为了下载安装 hexo，需要先安装 nodejs<br>为了更好的管理 nodejs，可以先安装 nvm，这个可以很方便的切换和安装各个版本的 nodejs<br>为了更快速的下载各种依赖，可以先使用 Nodejs 安装 nrm，再切换到淘宝镜像</p><h3 id="nodejs-安装"><a href="#nodejs-安装" class="headerlink" title="nodejs 安装"></a>nodejs 安装</h3><p>详情查看 nodejs 笔记<br>[[nodejs]]</p><h3 id="Git-安装"><a href="#Git-安装" class="headerlink" title="Git 安装"></a>Git 安装</h3><blockquote><p>官方下载： <a href="https://git-scm.com/">https://git-scm.com/</a></p></blockquote><p>下载安装包后一路同意即可</p><p>建议：安装 hexo 之前先将 Git 与 github 使用 ssh 建立连接</p><h4 id="git-配置-ssh-key"><a href="#git-配置-ssh-key" class="headerlink" title="git 配置 ssh key"></a>git 配置 ssh key</h4><blockquote><p>为什么要配置 SSH key？<br>目的：可以免密将本地的源码和资源上传到 github，无需每次都输账号和密码</p></blockquote><p>设置 Git账号和邮箱</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">git config --global user.name &quot;username&quot;<br>git config --global user.email &quot;xxx@163.com&quot;<br></code></pre></td></tr></table></figure><p>先查看本地是否配置好 SSH key，在 git bash 中 命令：<code>cd ~/.ssh</code>，成功进入路径即表示配置好了</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs git">Admin@DESKTOP-54I0NJ3 MINGW64 /d/Notes/MyBlog (master)<br>$ cd ~/.ssh<br><br>Admin@DESKTOP-54I0NJ3 MINGW64 ~/.ssh<br><br></code></pre></td></tr></table></figure><p>显示：<code>No such filr or firecotry</code> 表示没有配置</p><blockquote><p>ssh 配置好后是保存到 <code>C:/Users/用户名/.ssh</code> 文件夹</p></blockquote><p><strong>生成 ssh key</strong>：<code>ssh-keygen -t rsa -C &quot;邮件地址&quot;</code>，之后连续回车三次（会询问你密钥保存位置和 是否设置私钥代码等），可以看到在 .ssh 文件夹下生成了(-t 选项用于指定密钥类型，rsa 代表一种密码算法，还有一种 dsa，证书常用的是 rsa。-C 选项允许你添加一个注释或标记到你的公钥文件中，后面接的是你的注释)<br>id_rsa 和 id_rsa.pub 文件，这代表 私钥和公钥，复制公钥中的全部内容<br>接着打开 github 主页，点击个人设置，点击左侧的 SSH and GPG keys，new 一个 ssh key，title 随便起一个名字，将内容复制到 key 中，点击 Add SSH key。</p><blockquote><p>测试是否成功<br><code>ssh -T git@github.com</code><br>出现 You are successfully… but Github does…. 表示连接成功</p></blockquote><h3 id="搭建个人博客"><a href="#搭建个人博客" class="headerlink" title="搭建个人博客"></a>搭建个人博客</h3><p>安装 hexo<br>安装命令：<code>npm install hexo -g</code><br>查看版本：<code>hexo -v</code><br>安装 hexo 依赖：<code>npm install --save hexo-deployer-git</code></p><p>后续步骤跟着做就行了： <a href="https://www.cnblogs.com/chenlove/p/15058170.html">https://www.cnblogs.com/chenlove/p/15058170.html</a></p><p>写新文章步骤：<br>1）创建新文章：<code>hexo n &quot;文章名称&quot;</code><br>2）自己使用常用的 markdown 编辑器，进行编辑<br>3）清除缓存，升成静态网页，并开启 hexo <code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code><br>4）发布：<code>hexo d</code>（其实是使用 hexo-deployer-git  将升成的静态文件自动部署到 git 仓库）</p><blockquote><p>开启 steam++ 加速方案 Github 会导致 <code>hexo d</code> 失败<br>未进行 <code>hexo clean</code> 清除缓存，可能会导致 github 网页没有变化</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;参考链接： &lt;a href=&quot;https://www.cnblogs.com/chenlove/p/15058170.html&quot;&gt;https://www.cnblogs.com/chenlove/p/15058170.html&lt;/a&gt;&lt;br&gt;&lt;a </summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>nodejs</title>
+    <link href="http://example.com/2024/07/28/nodejs/"/>
+    <id>http://example.com/2024/07/28/nodejs/</id>
+    <published>2024-07-27T20:10:56.000Z</published>
+    <updated>2024-07-27T20:11:36.034Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="使用-NVM-安装和管理-nodejs"><a href="#使用-NVM-安装和管理-nodejs" class="headerlink" title="使用 NVM 安装和管理 nodejs"></a>使用 NVM 安装和管理 nodejs</h3><hr><p>为什么要使用 nvm 管理 nodejs？<br>当前安装的 node.js 版本与项目所使用的 node.js 版本不一致，会导致 <code>npm install</code> 发生错误</p><h4 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h4><h4 id="一、卸载已安装的-nodejs"><a href="#一、卸载已安装的-nodejs" class="headerlink" title="一、卸载已安装的 nodejs"></a>一、卸载已安装的 nodejs</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">#查看是否已安装node.js<br>node -v<br></code></pre></td></tr></table></figure><h5 id="未安装"><a href="#未安装" class="headerlink" title="未安装"></a>未安装</h5><p>未安装 node.js 可以跳过此步骤</p><h5 id="已安装"><a href="#已安装" class="headerlink" title="已安装"></a>已安装</h5><p>需要卸载删除已安装的 nodejs<br>打开控制面板，卸载nodejs 即可。</p><h4 id="二、安装NVM"><a href="#二、安装NVM" class="headerlink" title="二、安装NVM"></a>二、安装NVM</h4><p>1、下载安装包 从 github 下载安装包，直接默认安装即可。<br><a href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a><br>2、<code>nvm -v</code> 查看是否安装成功，以及 nvm 的版本</p><h4 id="三、安装-node-js"><a href="#三、安装-node-js" class="headerlink" title="三、安装 node.js"></a>三、安装 node.js</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">#查看可用的node.js稳定版本<br>nvm list available<br>#下载指定的node.js版本<br>nvm install 20.15.0<br></code></pre></td></tr></table></figure><h4 id="四、相关命令"><a href="#四、相关命令" class="headerlink" title="四、相关命令"></a>四、相关命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">#查看已安装的node.js<br>nvm list<br>#切换当前使用版本<br>nvm use 20.15.0<br>#卸载node.js版本<br>nvm uninstall 20.15.0<br></code></pre></td></tr></table></figure><h4 id="五、安装nrm，切换npm-镜像"><a href="#五、安装nrm，切换npm-镜像" class="headerlink" title="五、安装nrm，切换npm 镜像"></a>五、安装nrm，切换npm 镜像</h4><p>全局安装nrm：<code>npm install -g nrm</code><br>查看镜像源列表：<code>nrm ls</code></p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-function">C:\<span class="hljs-title">Users</span>\<span class="hljs-title">Admin</span>&gt;<span class="hljs-title">nrm</span> <span class="hljs-title">ls</span></span><br><span class="hljs-function">  <span class="hljs-title">npm</span> ---------- <span class="hljs-title">https</span>://<span class="hljs-title">registry.npmjs.org</span>/</span><br><span class="hljs-function">  <span class="hljs-title">yarn</span> --------- <span class="hljs-title">https</span>://<span class="hljs-title">registry.yarnpkg.com</span>/</span><br><span class="hljs-function">  <span class="hljs-title">tencent</span> ------ <span class="hljs-title">https</span>://<span class="hljs-title">mirrors.cloud.tencent.com</span>/<span class="hljs-title">npm</span>/</span><br><span class="hljs-function">  <span class="hljs-title">cnpm</span> --------- <span class="hljs-title">https</span>://<span class="hljs-title">r.cnpmjs.org</span>/</span><br><span class="hljs-function">* <span class="hljs-title">taobao</span> ------- <span class="hljs-title">https</span>://<span class="hljs-title">registry.npmmirror.com</span>/</span><br><span class="hljs-function">  <span class="hljs-title">npmMirror</span> ---- <span class="hljs-title">https</span>://<span class="hljs-title">skimdb.npmjs.com</span>/<span class="hljs-title">registry</span>/</span><br></code></pre></td></tr></table></figure><p>查看当前源：<code>nrm currnet</code></p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-function">C:\<span class="hljs-title">Users</span>\<span class="hljs-title">Admin</span>&gt;<span class="hljs-title">nrm</span> <span class="hljs-title">current</span></span><br><span class="hljs-function"><span class="hljs-title">You</span> <span class="hljs-title">are</span> <span class="hljs-title">using</span> <span class="hljs-title">taobao</span> <span class="hljs-title">registry</span>.</span><br></code></pre></td></tr></table></figure><p>切换镜像源：<code>nrm use taobao</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;使用-NVM-安装和管理-nodejs&quot;&gt;&lt;a href=&quot;#使用-NVM-安装和管理-nodejs&quot; class=&quot;headerlink&quot; title=&quot;使用 NVM 安装和管理 nodejs&quot;&gt;&lt;/a&gt;使用 NVM 安装和管理 nodejs&lt;/h3&gt;&lt;hr&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2024/07/21/hello-world/"/>
+    <id>http://example.com/2024/07/21/hello-world/</id>
+    <published>2024-07-21T13:38:40.495Z</published>
+    <updated>2024-07-21T08:59:14.475Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
